@@ -13,8 +13,8 @@ my_server::ResponseMapper* my_server::ResponseMapper::getInstance() {
 
 my_server::ResponseMapper::ResponseMapper() {
     HeadForger headForger;
+    std::cout << "Loading website files..." << ROOT_DIR << std::endl;
     for (const auto& entry : fs::recursive_directory_iterator(ROOT_DIR)) {
-        std::cout << entry.path() << std::endl;
 
         auto path = entry.path();
         string pathStr = path.string();
@@ -62,13 +62,7 @@ my_server::ResponseMapper::ResponseMapper() {
 
         validRequests.push_back(fileLoc);
         requestedData[fileLoc] = response;
-        std::cout << "FILELOC: " << fileLoc << " BYTES: " << requestedData[fileLoc].size() << std::endl;
     }
     requestedData["/"] = requestedData["/index.html"];
+    std::cout << "All files successfully loaded!" << std::endl;
 }
-
-
-enum CONTENT_TYPE
-{
-    
-};

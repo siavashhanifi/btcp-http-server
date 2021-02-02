@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="design" version="4">
+  <OBJECT>
+    <ID name="design" mc="Standard.Package" uid="b174d4dc-571e-4a95-94c6-e12dd5cf3482"/>
+    <PID name="my_website_backend" mc="Standard.Package" uid="7897a58a-f793-4552-9589-79b84fe4d2dc"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[design]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Startup" mc="Standard.Class" uid="ac109eca-2b13-43ec-b4a4-477d5db557ba"/>
+        <COMPID name="network" mc="Standard.Package" uid="e29a75f4-2de1-4ea3-a3a0-6cb0b4142025"/>
+        <COMPID name="fileloading" mc="Standard.Package" uid="b5af61a0-888e-47bd-8dbc-205da6ba02e9"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="class_diagram" mc="Standard.ClassDiagram" uid="941b8829-e60b-4d0e-a065-2dbeedf58515"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

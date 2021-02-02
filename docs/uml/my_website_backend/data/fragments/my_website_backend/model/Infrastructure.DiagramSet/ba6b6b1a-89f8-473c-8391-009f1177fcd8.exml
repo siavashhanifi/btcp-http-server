@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="my_website_backend" version="4">
+  <OBJECT>
+    <ID name="my_website_backend" mc="Infrastructure.DiagramSet" uid="ba6b6b1a-89f8-473c-8391-009f1177fcd8"/>
+    <PID name="my_website_backend" mc="Standard.Project" uid="bcb2a866-eb5c-4cfb-882b-ab15de981255"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[my_website_backend]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

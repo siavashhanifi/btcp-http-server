@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="network" version="4">
+  <OBJECT>
+    <ID name="network" mc="Standard.Package" uid="e29a75f4-2de1-4ea3-a3a0-6cb0b4142025"/>
+    <PID name="design" mc="Standard.Package" uid="b174d4dc-571e-4a95-94c6-e12dd5cf3482"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[network]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="TCP_handler" mc="Standard.Class" uid="81d89c53-20ba-4b58-a551-a45a25907915"/>
+        <COMPID name="HTTP_handler" mc="Standard.Class" uid="b8848aa9-91a8-431b-ad39-41ab6e1beb7b"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="my_website_backend" version="4">
+  <OBJECT>
+    <ID name="my_website_backend" mc="Standard.Package" uid="7897a58a-f793-4552-9589-79b84fe4d2dc"/>
+    <PID name="my_website_backend" mc="Standard.Project" uid="bcb2a866-eb5c-4cfb-882b-ab15de981255"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[my_website_backend]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="Interaction" mc="Standard.Interaction" uid="2ebbcedb-804d-492f-ae1b-bdf4c5279d61"/>
+      </COMP>
+      <COMP relation="OwnedElement">
+        <COMPID name="operations" mc="Standard.Package" uid="8343a8cd-1b49-4423-8efb-148b9816fafc"/>
+        <COMPID name="design" mc="Standard.Package" uid="b174d4dc-571e-4a95-94c6-e12dd5cf3482"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

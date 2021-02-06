@@ -5,7 +5,11 @@
 <h3>Requirements</h3>
 <p>The requirements are listed below:</p>
 <ul>
-<li><code>ws2_32.lib</code> - static library for Windows Sockets 2.</li>
-<li><code>cxx_std_17</code> - compiler with c++17 support.</li>
+  <li><code>ws2_32.lib</code> - static library for Windows Sockets 2.</li>
+  <li><code>cxx_std_17</code> - compiler with c++17 support.</li>
 </ul>
 <h3> Build </h3>
+<ol>
+  <li>Use CMake to configure and generate build environment.</li>
+  <li>Build the program in your environment!</li>
+</ol>

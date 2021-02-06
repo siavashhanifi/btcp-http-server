@@ -6,7 +6,7 @@ using ResponseMapper = my_server::ResponseMapper;
 ResponseMapper *ResponseMapper::singleton = NULL;
 
 bool portInRange(int port) {
-	return (port >= 1024 && port <= 49151);
+	return (port == 80 || (port >= 1024 && port <= 49151));
 }
 
  int parseArgs(const int &argc,const char**& argv) {
@@ -17,11 +17,11 @@ bool portInRange(int port) {
 	try {
 		int port = std::stoi(argv[1]);
 		if (!portInRange(port)) {
-			throw "Port out of range - specify a port between 1024-49151";
+			throw "Port out of range - specify port 80 or between 1024-49151";
 		} return port;
 	}
 	catch(const std::exception&) {
-		throw "Invalid arguments - format: btcp-http-server.exe <port>(between 1024-49151)";
+		throw "Invalid arguments - format: btcp-http-server.exe <port>( 80 or between 1024-49151)";
 	}
 
 

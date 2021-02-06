@@ -18,7 +18,9 @@ namespace my_server {
 			static ResponseMapper* getInstance();
 			std::vector<std::string> validRequests;
 			std::map<std::string, Bytes> requestedData;
+			size_t getLongestPath();
 		private:
+			size_t longestPath;
 			ResponseMapper();
 	};
 }

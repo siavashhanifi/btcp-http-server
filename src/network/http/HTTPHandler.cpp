@@ -1,13 +1,11 @@
 #include"HTTPHandler.h"
 
-std::string filterRequest(char* request) {
-	std::string filteredRequest = "";
-	int i = 4;
-	while (true) {
-		if (request[i] == ' ' || i > 512)
+std::string my_server::HTTPHandler::filterRequest(char* request) {
+	std::string filteredRequest;
+	for (int i = 4; i < recieveBufferSize; i++) {
+		if (request[i] == ' ')
 			break;
 		filteredRequest += request[i];
-		i++;
 	}
 	return filteredRequest;
 }
@@ -15,32 +13,35 @@ std::string filterRequest(char* request) {
 my_server::HTTPHandler::HTTPHandler(SOCKET client) {
 	clientSocket = client;
 	responseMapper = responseMapper->getInstance();
+	recieveBufferSize = 5 + responseMapper->getLongestPath();
 	handleRequest();
 }
 
 void my_server::HTTPHandler::handleRequest() {
-	char recievedBuffer[512] = {};
-	int result;
-	std::string filteredReq;
-	std::vector<char> bytes;
+	using Bytes = std::vector<char>;
+	char *recieveBuffer = new char[recieveBufferSize];
 	while (true) {
-		result = recv(clientSocket, recievedBuffer, 512, 0);
+
+		//blocking get 512 bytes from the client.
+		int result = recv(clientSocket, recieveBuffer, (int)recieveBufferSize, 0);
+
+		//socket alive?
 		if (result == 0 || result == SOCKET_ERROR)
 			break;
-		filteredReq = filterRequest(recievedBuffer);
-		bytes = responseMapper->requestedData[filteredReq];
-		size_t sentbytes = send(clientSocket, bytes.data(), bytes.size(), 0);
-	}
-}
 
-void my_server::HTTPHandler::sendAllBytes(std::vector<char> bytes) {
-	char* bytesPtr = bytes.data();
-	size_t nOBytes = bytes.size();
-	size_t sentBytes = 0;
-	while (nOBytes != 0) {
-		sentBytes = send(clientSocket, bytesPtr, nOBytes, 0);
-		nOBytes -= sentBytes;//{sent,sent,sent, nots,nots, nots}
-		bytesPtr += sentBytes;
+		//filter out the path from the http get request.
+		std::string filteredReq = filterRequest(recieveBuffer);
+
+		//get bytes for the request.
+		Bytes bytes;
+		try {
+			 bytes = responseMapper->requestedData.at(filteredReq);
+		}
+		catch (std::out_of_range) {//unmapped requests redirect to index.html 
+			bytes = responseMapper->requestedData.at("/");
+		}
+		//send bytes via through client socket.
+		send(clientSocket, bytes.data(), (int)bytes.size(), 0);
 	}
-	std::cout << "sent " << nOBytes << "bytes successfully" << std::endl;
+	delete[] recieveBuffer;
 }

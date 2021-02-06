@@ -17,16 +17,17 @@ add_executable (${PROJECT_NAME} "main.cpp"
  "fileloading/HeadForger.cpp"
  "fileloading/ResponseMapper.cpp"
  "fileloading/ResponseMapper.h"
- "fileloading/File.cpp"
  "fileloading/HeadForger.h")
 
-# TODO: Add tests and install targets if needed.
+# Required for usage of Window Sockets 2 library.
 if(WIN32)
-  target_link_libraries(${PROJECT_NAME} ws2_32 kernel32)
+  target_link_libraries(${PROJECT_NAME} ws2_32)
 endif()
 
+# Required for usage of std::filesystem in ResponseMapper
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 
+# Copies files from src/www to <build location>/www
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory
                    ${CMAKE_SOURCE_DIR}/www 

@@ -4,17 +4,17 @@ my_server::ThreadHandler::ThreadHandler() {
 	
 }
 	
-
-DWORD WINAPI createHTTPHandler(LPVOID lpParam) {
-	SOCKET client = (SOCKET)lpParam;
-	my_server::HTTPHandler *httpHandler = new my_server::HTTPHandler(client);
+void *createHTTPHandler(void *param) {
+	SOCKET client = (SOCKET)param;
+	auto httpHandler = new my_server::HTTPHandler(client);
 	delete httpHandler;
 	return 0;
 }
 
 void my_server::ThreadHandler::createThread(void *data) {
-	CreateThread(NULL,
-		0, createHTTPHandler, data,
-		0, NULL);
+	using thread = std::thread;
+	thread newThread = thread(&createHTTPHandler, data);
+	//let the thread run freely/detached from the main thread.
+	newThread.detach();
 }
 

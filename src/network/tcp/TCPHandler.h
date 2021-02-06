@@ -1,8 +1,9 @@
 #pragma once
-
+#include <WinSock2.h>
+#include <WS2tcpip.h>
 #include<string>
 #include<iostream>
-#include <WinSock2.h>
+
 #include"../../threads/ThreadHandler.h"
 
 
@@ -16,7 +17,7 @@ namespace my_server {
 		sockaddr_in socketDetails;
 		my_server::ThreadHandler *threadHandler;
 		void createSocket();
-		void bindSocket();
+		void bindSocket(u_short port);
 		void handleClients();
 	};
 }

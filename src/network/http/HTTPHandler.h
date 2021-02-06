@@ -13,8 +13,9 @@ namespace my_server {
 		HTTPHandler(SOCKET client);
 	private:
 		SOCKET clientSocket;
+		size_t recieveBufferSize;
 		my_server::ResponseMapper *responseMapper;
+		std::string filterRequest(char *request);
 		void handleRequest();
-		void sendAllBytes(std::vector<char> bytes);
 	};
 }

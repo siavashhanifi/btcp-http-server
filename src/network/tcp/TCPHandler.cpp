@@ -1,7 +1,6 @@
 #include "TCPHandler.h"
 
 my_server::TCPHandler::TCPHandler(u_short port) {
-	threadHandler = new ThreadHandler();
 	createSocket();
 	bindSocket(port);
 	handleClients();
@@ -36,6 +35,6 @@ void my_server::TCPHandler::handleClients() {
 		SOCKET client = accept(serverSocket, NULL, NULL);
 		if (client == INVALID_SOCKET)
 			std::cerr << "Invalid client socket" << std::endl;
-		threadHandler->createThread((void*)client);
+		createThread((void*)client);
 	}
 }

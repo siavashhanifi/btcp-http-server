@@ -4,7 +4,8 @@
 #include<string>
 #include<iostream>
 
-#include"../../threads/ThreadHandler.h"
+#include"../../threads/ThreadUtility.h"
+
 
 
 namespace my_server {
@@ -15,7 +16,6 @@ namespace my_server {
 	private:
 		SOCKET serverSocket;
 		sockaddr_in socketDetails;
-		my_server::ThreadHandler *threadHandler;
 		void createSocket();
 		void bindSocket(u_short port);
 		void handleClients();

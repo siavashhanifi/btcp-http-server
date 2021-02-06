@@ -5,11 +5,6 @@
 #include"../network/http/HTTPHandler.h"
 
 namespace my_server {
-
-	class ThreadHandler {
-	public:
-		ThreadHandler();
-		void createThread(void* data);
-	};
-
+	void* createHTTPHandler(void* param);
+	void createThread(void* data);
 }

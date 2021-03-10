@@ -13,3 +13,8 @@
   <li>Use CMake to configure and generate build environment.</li>
   <li>Build the program in your environment!</li>
 </ol>
+<h3> Run </h3>
+<ol>
+  <li>Place website files in <code>/www</code></li>
+  <li>run <code>btcp-http-server.exe port</code></li>
+</ol>
